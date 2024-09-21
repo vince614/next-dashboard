@@ -9,9 +9,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
-import {updateInvoice, State, createInvoice} from '@/app/lib/actions';
+import { updateInvoice, State } from '@/app/lib/actions';
 import { useActionState } from 'react';
-import {UpdateInvoice} from "@/app/ui/invoices/buttons";
 
 export default function EditInvoiceForm({
   invoice,
@@ -22,6 +21,7 @@ export default function EditInvoiceForm({
 }) {
   const initialState: State = { message: null, errors: {} };
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
 
   return (
